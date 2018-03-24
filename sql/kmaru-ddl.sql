@@ -1,4 +1,4 @@
-ALTER DATABASE kmaru CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE faqt CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 DROP TABLE IF EXISTS ledger;
 DROP TABLE IF EXISTS board;
 DROP TABLE IF EXISTS card;
@@ -96,28 +96,21 @@ CREATE TABLE ledger(
 	PRIMARY KEY (ledgerBoardId, ledgerCardId, ledgerProfileId)
 );
 
+-- the captain:
+INSERT INTO profile(profileId, profileActivationToken, profileEmail, profileHash, profileName, profilePrivilege, profileSalt, profileUsername)
+VALUES(UNHEX(REPLACE('C2954660F27B45578F2DC68E8B2D8AA8', '-', '')), 'null', 'deepdivedylan@cnm.edu',	'58c2503d7de5c20ac408b907f863f5a0c1db94cc2445063f0f67ce9900d3d55b854959a05bf885e3d49beed169a241112a7609815b24667a68cd2651d4d2bafd',	'Dylan',	'1', 'e99ae3a325867c32b76ccffe0a15d099ce1690aed6aad46c8ab1226c0aafa942', 'Captain Dylan');
 
--- Deletions:
-DELETE FROM card
-WHERE cardCategoryId= UNHEX(REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', ''));
+INSERT INTO profile(profileId, profileActivationToken, profileEmail, profileHash, profileName, profilePrivilege, profileSalt, profileUsername)
+VALUES(UNHEX(REPLACE('5C12B395E7824422B1B056D57598A7FE', '-', '')), 'null', 'grodd@cnm.edu',	'fb72e587e7b92c5d5aebccafee8f435888a0f9f953e884dccf54f8660367ff1b9eb84d33665e0b5237ea6be475ff3345b7c79abdbaca826351f8fca00cb05e02',	'Gene Roddenberry',	'0', '634d3d43a49c2c241fb10360302a35f1338ab388535261ba12a63749b5129449', 'GRodd');
 
-DELETE FROM card
-WHERE cardCategoryId= UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', ''));
 
 -- categories:
 
-INSERT INTO category(categoryId, categoryProfileId, categoryName)
-VALUES(UNHEX(REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', '')), UNHEX(REPLACE('C2954660-F27B-4557-8F2D-C68E8B2D8AA8', '-', '')), 'Star Trek Villains');
-
 
 INSERT INTO category(categoryId, categoryProfileId, categoryName)
-VALUES(UNHEX(REPLACE('dd02034e-2f70-4ca8-a4bc-416c3eaa0db3', '-', '')), UNHEX(REPLACE('C2954660F27B45578F2DC68E8B2D8AA8', '-', '')), 'Star Trek Captains');
+VALUES(UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), UNHEX(REPLACE('5C12B395E7824422B1B056D57598A7FE', '-', '')), 'join');
 
-INSERT INTO category(categoryId, categoryProfileId, categoryName)
-VALUES(UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), UNHEX(REPLACE('C2954660F27B45578F2DC68E8B2D8AA8', '-', '')), 'Star Trek Kitties');
 
-INSERT INTO category(categoryId, categoryProfileId, categoryName)
-VALUES(UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', '')), UNHEX(REPLACE('C2954660F27B45578F2DC68E8B2D8AA8', '-', '')), 'Star Trek Ships');
 
 
 -- boards:
@@ -131,53 +124,13 @@ VALUES (UNHEX(REPLACE('129c71cf-89e0-4d5d-9968-3c4cf079fd46', '-', '')), UNHEX(R
 
 -- cards:
 
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX(REPLACE('32577dd4-4853-4054-a868-d119663f1106', '-', '')), UNHEX(REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', '')), 'who is villain 1', '1' , 'The name of the villain 1');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX(REPLACE('d77169b9-f139-487e-b9fd-c91a0d3435bb', '-', '')), UNHEX(REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', '')), 'who is villain 2', '2' , 'The name of the villain 2');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('91f5634c-7f7b-437e-bcc0-c69b55db60be', '-', '')),UNHEX (REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', '')), 'who is villain 4', '4' , 'The name of the villain 4');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('f7b6b5f9-e4fa-42aa-84a3-770b6938072b', '-', '')),UNHEX (REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', '')), 'who is villain 8', '8' , 'The name of the villain 8');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('155456a2-5926-4071-bfa8-5e21fb5402ae', '-', '')),UNHEX (REPLACE('dd02034e-2f70-4ca8-a4bc-416c3eaa0db3', '-', '')), 'who is captain 1', '1' , 'The name of the captain 1');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('f182ca2e-84e6-4171-acbd-64f7354a215e', '-', '')),UNHEX (REPLACE('dd02034e-2f70-4ca8-a4bc-416c3eaa0db3', '-', '')), 'who is captain 2', '2' , 'The name of the captain 2');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('6ce80295-f37c-4baf-9eb5-ce03246c38c9', '-', '')),UNHEX (REPLACE('dd02034e-2f70-4ca8-a4bc-416c3eaa0db3', '-', '')), 'who is captain 4', '4' , 'The name of the captain 4');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('5ce35d28-9fc9-4092-8fcd-e5d9e41b9dcc', '-', '')),UNHEX (REPLACE('dd02034e-2f70-4ca8-a4bc-416c3eaa0db3', '-', '')), 'who is captain 8', '8' , 'The name of the captain 8');
 
 INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
 VALUES (UNHEX (REPLACE('fa41de8f-f69b-47cd-8b71-6fff8a3a1185', '-', '')),UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), 'who is kitty 2', '2', 'The name of kitty 2');
 
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('887f97ee-d606-4bbf-afde-b4db4a14d124', '-', '')),UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), 'who is kitty 4', '4', 'The name of kitty 4');
 
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('713d6c92-f9e3-4394-b972-56ff92ad128b', '-', '')),UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), 'who is kitty 32', '32', 'The name of kitty 32');
 
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('dc378e11-8c7d-4086-9238-7b0b76bd9628', '-', '')),UNHEX(REPLACE('0a253dc2-54a1-4985-ae66-dd5aed20b601', '-', '')), 'who is kitty 16', '16', 'The name of kitty 16');
 
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('15beed3c-5abd-4b08-a4ba-c15723be9efc', '-', '')),UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', '')), 'who is ship 16', '16', 'The name of ship 16');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('2c731a3f-c001-4fe8-9886-6984624f7a1a', '-', '')),UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', '')),'who is ship 1', '1', 'The name of ship 1');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('584f6c15-6dbc-420f-854e-35d552235042', '-', '')),UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', '')),'who is ship 8', '8', 'The name of ship 8');
-
-INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
-VALUES (UNHEX (REPLACE('39b12f66-f8ab-4ea4-b9cf-c18a202e466b', '-', '')),UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', '')),'who is ship 4', '4', 'The name of ship 4');
 
 
 
@@ -557,3 +510,10 @@ INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
 VALUES (UNHEX(REPLACE('c3d15b55-4cb6-40ce-9a43-2101b90587c7', '-', '')), UNHEX(REPLACE('c2a7af6e-e2b5-45fe-8c1e-b7300f85852c', '-', '')), 'Who is Ajit Pai?', 32, 'Reeses loving, net neutrality hating chairman');
 INSERT INTO card(cardId, cardCategoryId, cardAnswer, cardPoints, cardQuestion)
 VALUES (UNHEX(REPLACE('2d070b7e-193f-48fa-8328-a7def2c5d8ef', '-', '')), UNHEX(REPLACE('c2a7af6e-e2b5-45fe-8c1e-b7300f85852c', '-', '')), 'Who is Paul Vixie?', 32, '2014 Internet Hall of Fame inductee known for his work on DNS and anitspam measures');
+
+-- Deletions:
+DELETE FROM card
+WHERE cardCategoryId= UNHEX(REPLACE('30d28a7e-192b-4f54-b97d-ba6166eb7433', '-', ''));
+
+DELETE FROM card
+WHERE cardCategoryId= UNHEX(REPLACE('4e7fc1e6-3c3b-43d7-9a7e-6b97b25e6593', '-', ''));
