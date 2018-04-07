@@ -5,7 +5,7 @@ require_once dirname(__DIR__,3) . "/php/lib/xsrf.php";
 require_once dirname(__DIR__, 3) . "/php/lib/uuid.php";
 require_once dirname(__DIR__, 3) . "/php/lib/jwt.php";
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
-use Edu\Cnm\Kmaru\{
+use Edu\Cnm\Faqt\{
 	Card,
 	// use the Category class for testing only (card is dependent on category)
 	Category,
@@ -32,7 +32,7 @@ $reply->data = null;
 
 try {
 	// grab the mySQL connection
-	$pdo = connectToEncryptedMySql("/etc/apache2/capstone-mysql/kmaru.ini");
+	$pdo = connectToEncryptedMySql("/etc/apache2/capstone-mysql/faqtAnnakhamsamran.ini");
 
 	// determine which HTTP method was used
 	$method = array_key_exists("HTTP_X_HTTP_METHOD", $_SERVER) ? $_SERVER["HTTP_X_HTTP_METHOD"] : $_SERVER["REQUEST_METHOD"];

@@ -5,7 +5,7 @@ require_once dirname(__DIR__, 3) . "/php/classes/autoload.php";
 require_once dirname(__DIR__, 3) . "/php/lib/xsrf.php";
 require_once dirname(__DIR__, 3) . "/php/lib/jwt.php";
 require_once ("/etc/apache2/capstone-mysql/encrypted-config.php");
-use Edu\Cnm\Kmaru\Profile;
+use Edu\Cnm\Faqt\Profile;
 /**
  * api for handling sign-in
  *
@@ -22,7 +22,7 @@ try {
 		session_start();
 	}
 	//grab mySQL statement
-	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/kmaru.ini");
+	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/faqtAnnakhamsamran.ini");
 	//determine which HTTP method is being used
 	$method = array_key_exists("HTTP_X_HTTP_METHOD", $_SERVER) ? $_SERVER["HTTP_X_HTTP_METHOD"] : $_SERVER["REQUEST_METHOD"];
 	//If method is post handle the sign in logic

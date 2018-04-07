@@ -4,7 +4,7 @@ require_once dirname(__DIR__,3 ) .  "/php/lib/jwt.php";
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(__DIR__, 3) . "/vendor/autoload.php");
 require_once(dirname(__DIR__, 3) . "/php/classes/autoload.php");
-use Edu\Cnm\Kmaru\{Ledger};
+use Edu\Cnm\Faqt\{Ledger};
 $reply = new stdClass();
 $reply->status = 200;
 $reply->data = null;
@@ -18,7 +18,7 @@ try {
 		}
 		verifyXsrf();
 
-		$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/kmaru.ini");
+		$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/faqtAnnakhamsamran.ini");
 
 
 		$requestContent = file_get_contents("php://input");

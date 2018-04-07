@@ -84,11 +84,11 @@ function verifiedAndValidatedSignature ( \Lcobucci\JWT\Token  $headerJwt) : void
 	$validator = new ValidationData();
 	$validator->setId(session_id());
 	if($headerJwt->validate($validator) !== true) {
-		throw (new InvalidArgumentException("not authorized to preform task", 402));
+		throw (new InvalidArgumentException("not authorized to perform task", 402));
 	}
 	//verify that the JWT was signed by the server
 	$signer = new Sha512();
 	if($headerJwt->verify($signer, $_SESSION["signature"]) !== true) {
-		throw (new InvalidArgumentException("not authorized to preform task", 403));
+		throw (new InvalidArgumentException("not authorized to perform task", 403));
 	}
 }

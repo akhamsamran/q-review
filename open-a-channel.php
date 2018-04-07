@@ -14,7 +14,7 @@ $reply = new stdClass();
 $reply->status = 200;
 $reply->data = null;
 try {
-	$config = readConfig("/etc/apache2/capstone-mysql/kmaru.ini");
+	$config = readConfig("/etc/apache2/capstone-mysql/faqtAnnakhamsamran.ini");
 	$pubNub = json_decode($config["pubnub"]);
 	$pubNubConf = new PNConfiguration();
 	$pubNubBoard = new PubNub($pubNubConf);

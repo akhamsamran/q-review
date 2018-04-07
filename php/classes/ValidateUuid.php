@@ -1,5 +1,5 @@
 <?php
-namespace Edu\Cnm\Kmaru;
+namespace Edu\Cnm\Faqt;
 require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace Edu\Cnm\Kmaru;
+namespace Edu\Cnm\Faqt;
 
 
 require_once("autoload.php");
 require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
 
-use Edu\Cnm\Kmaru\JsonObjectStorage;
+use Edu\Cnm\Faqt\JsonObjectStorage;
 use Ramsey\Uuid\Uuid;
 
 
